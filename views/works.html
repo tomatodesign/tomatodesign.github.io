@@ -1,0 +1,25 @@
+<div class="product-carousel-wrapper">
+  <div class="product-carousel-fixed-cover">
+    <img ng-src="{{ currentPhoto.cover }}" id="galleryCoverImage" alt="">
+  </div>
+  <div class="caption" ><p ng-bind="currentPhoto.title ? currentPhoto.title : 'loading... please wait'"></p></div>
+  <div class="product-carousel-navigator">
+    <div class="prev-image" ng-class="{ hover: hoverPrev }" ng-mouseenter="hoverPrev = true" ng-mouseleave="hoverPrev = false" ng-click="prevPhoto()">
+      <img src="/img/navigation-content-prev.png" alt="">
+    </div>
+    <div class="next-image" ng-class="{ hover: hoverNext }" ng-mouseenter="hoverNext = true" ng-mouseleave="hoverNext = false" ng-click="nextPhoto()">
+      <img src="/img/navigation-content-next.png" alt="">
+    </div>
+  </div>
+</div>
+<div class="product-carousel-navigation">
+  <div class="shadow-left"></div>
+  <div class="product-carousel-navigation-wrapper">
+    <ul class="clearfix" style="width:{{galleryNavigantionWidth}}px">
+      <li ng-repeat="photo in photos" ng-click="setCurrentPhoto(photo)">
+        <img class="thumb" ng-src="{{photo.thumbUrl}}" alt="photo.title">
+      </li>
+    </ul>
+  </div>
+  <div class="shadow-right"></div>
+</div>

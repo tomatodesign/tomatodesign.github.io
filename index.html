@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" ng-app="tomato">
+<head>
+  <meta charset="utf-8">
+  <meta name="fragment" content="!">
+  <title>Tomato Design 番茄设计</title>
+  <meta name="keywords" content="番茄设计, Tomato, Design">
+  <meta name="description" content="番茄设计">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css"/>
+</head>
+<body>
+  <div ng-controller="menu" class="navbar">
+    <div class="brand">
+      <a href="/" alt="Tomato Design 番茄设计">Tomato Design 番茄设计</a>
+    </div>
+    <ul class="nav">
+      <li ng-repeat="item in menu" active-link="active" ng-class="getClass('{{ item.url }}')">
+        <a ng-href="{{ item.url }}" ng-bind="item.name"></a>
+        <ul ng-show="item.subnav.length" class="subnav">
+          <li ng-repeat="subItem in item.subnav" ng-class="getClass('{{ subItem.url }}')">
+            <a ng-href="{{ subItem.url }}" ng-bind="subItem.name"></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content" ng-view>
+  </div>
+
+  <div class="border-bottom-gray"></div>
+
+  <script src="/lib/underscore/underscore.js"></script>
+  <script src="/lib/imagesloaded.js"></script>
+  <script src="/lib/angular/angular.min.js"></script>
+  <script src="/lib/angular/angular-route.js"></script>
+  <script src="/lib/ngprogress-lite.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/services.js"></script>
+  <script src="/js/controllers.js"></script>
+  <script src="/js/filters.js"></script>
+  <script src="/js/directives.js"></script>
+</body>
+</html>
